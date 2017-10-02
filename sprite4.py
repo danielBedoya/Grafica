@@ -11,10 +11,11 @@ centro=[ANCHO/2,ALTO/2]
 
 class Jugador(pygame.sprite.Sprite):
     def __init__(self,an,al):
-        pygame.sprite.Sprite.__init__(self)
-        self.image=pygame.Surface([an,al])
-        self.image.fill(ROJO)
-        self.rect=self.image.get_rect()
+	pygame.sprite.Sprite.__init__(self)
+	self.image=pygame.Surface([an,al])
+	self.image.fill(ROJO)
+	self.rect=self.image.get_rect()
+	self.vidas=5
         self.var_x=0
         self.var_y=0
     def update(self):
@@ -83,7 +84,7 @@ if __name__=='__main__':
             if event.type==pygame.QUIT:
                 fin=True
             if event.type==pygame.KEYDOWN:
-                if event.key==pygame.K_RIGHT:
+                if event.key==pygame.K_RIGHT and bl.rect.x<=ANCHO-bl.rect[2]:
                     bl.var_x=12
                 if event.key==pygame.K_LEFT:
                     bl.var_x=-12
@@ -103,6 +104,7 @@ if __name__=='__main__':
             r.rect.y=-1*(random.randrange(random.randrange(ALTO+30,ALTO+500, 10)))
             rivales.add(r)
             general.add(r)
+	    bl.vidas-=1
         pantalla.fill(BLANCO)
         general.update()
         general.draw(pantalla)
