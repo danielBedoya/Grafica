@@ -58,7 +58,7 @@ class Rival(pygame.sprite.Sprite):
             self.temporizador -=1
         else:
             self.rect.y+=self.var_y
-        
+
     def gen_rivales(self,general,rivales):
         r=Rival(20,20)
         r.rect.x=random.randrange(10, ANCHO-20)
@@ -80,10 +80,10 @@ def game_over(pantalla,recordper):
     pantalla.fill(NEGRO)
     image=pygame.image.load('stop_opt.png')
     pantalla.blit(image,[180,50])
-    fuenteBásica = pygame.font.SysFont(None, 30)
-    texto = fuenteBásica.render('Juego Terminado', True, BLANCO)
-    texto1 = fuenteBásica.render('Presione 1 para reiniciar', True, BLANCO)
-    texto2 = fuenteBásica.render('Presione 2 para salir', True, BLANCO)
+    fuenteBasica = pygame.font.SysFont(None, 30)
+    texto = fuenteBasica.render('Juego Terminado', True, BLANCO)
+    texto1 = fuenteBasica.render('Presione 1 para reiniciar', True, BLANCO)
+    texto2 = fuenteBasica.render('Presione 2 para salir', True, BLANCO)
     textRect = texto.get_rect()
     textRect.centerx = pantalla.get_rect().centerx
     textRect.centery = pantalla.get_rect().centery
@@ -108,20 +108,20 @@ def print_extras(pantalla,vidas,record,bl_record):
     for i in range(vidas):
         pantalla.blit(heart,[0+x,380])
         x+=50
-    fuenteBásica = pygame.font.SysFont(None, 20)
-    texto = fuenteBásica.render('Su record es: '+str(record), True, NEGRO)
+    fuenteBasica = pygame.font.SysFont(None, 20)
+    texto = fuenteBasica.render('Su record es: '+str(record), True, NEGRO)
     pantalla.blit(texto, [450,0])
-    texto1 = fuenteBásica.render('Su puntaje actual es: '+str(bl_record), True, NEGRO)
+    texto1 = fuenteBasica.render('Su puntaje actual es: '+str(bl_record), True, NEGRO)
     pantalla.blit(texto1, [440,25])
 def pausa(pantalla,reloj,recordper):
     pantalla.fill(NEGRO)
     image=pygame.image.load('pause_opt.png')
     pantalla.blit(image,[180,50])
-    fuenteBásica = pygame.font.SysFont(None, 30)
-    texto = fuenteBásica.render('Menu de pausa', True, BLANCO)
-    texto1 = fuenteBásica.render('Presione 1 o p para continuar', True, BLANCO)
-    texto2 = fuenteBásica.render('Presione 2 para reiniciar', True, BLANCO)
-    texto3 = fuenteBásica.render('Presione 3 para salir', True, BLANCO)
+    fuenteBasica = pygame.font.SysFont(None, 30)
+    texto = fuenteBasica.render('Menu de pausa', True, BLANCO)
+    texto1 = fuenteBasica.render('Presione 1 o p para continuar', True, BLANCO)
+    texto2 = fuenteBasica.render('Presione 2 para reiniciar', True, BLANCO)
+    texto3 = fuenteBasica.render('Presione 3 para salir', True, BLANCO)
     textRect = texto.get_rect()
     textRect.centery = pantalla.get_rect().centery
     textRect.centerx = pantalla.get_rect().centerx
@@ -202,7 +202,7 @@ def main(recordper):
                 activador=True
                 if bl.record%20==0 and bl.record>0:
                     l=Live()
-                    l.rect.x=random.randrange(10, ANCHO-20)
+                    l.rect.x=random.randrange(10, ANCHO-40)
                     l.rect.y=-1*random.randrange(25, 35)
                     lives.add(l)
                     general.add(l)
